@@ -1,1 +1,65 @@
+<script>
+const SUPABASE_URL = "https://vgynmfhgkjpzqryasvqz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_W97B0LUtOpNiTOCB6Ozodg_ovJSJGfE";
 
+const form = document.getElementById("projectForm");
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const button = form.querySelector("button");
+  const originalText = button.textContent;
+
+  button.disabled = true;
+  button.textContent = "Sending...";
+
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    service: document.getElementById("service").value,
+    message: document.getElementById("message").value.trim()
+  };
+
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/project_enquiries`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY,
+          "Authorization": `Bearer ${SUPABASE_KEY}`,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+
+    if (!response.ok) {
+      const error = await response.text();
+      console.error(error);
+      throw new Error("Submission failed");
+    }
+
+    alert(
+      "Thank you! Your project enquiry has been sent successfully."
+    );
+
+    form.reset();
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      "Sorry, we could not send your enquiry. Please try again or contact us on WhatsApp."
+    );
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = originalText;
+
+  }
+});
+</script>
