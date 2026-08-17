@@ -1,1 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Tsanyawa Technologies Ltd | Building the Digital Future</title>
+
+<meta name="description" content="Tsanyawa Technologies Ltd is a Nigerian technology company creating innovative digital products, software and business solutions.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050505;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  background:rgba(5,5,5,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(212,175,55,.15);
+}
+
+.navbar{
+  min-height:75px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+nav ul{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+
+nav a{
+  color:#ddd;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(212,175,55,.15),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(212,175,55,.10),transparent 30%),
+    #050505;
+}
+
+.hero-content{
+  max-width:900px;
+  margin:auto;
+  padding-top:70px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 18px;
+  border:1px solid rgba(212,175,55,.5);
+  border-radius:30px;
+  color:#d4af37;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(48px,8vw,92px);
+  line-height:1;
+  margin-bottom:25px;
+}
+
+.hero h1 span{
+  color:#d4af37;
+}
+
+.hero p{
+  color:#bdbdbd;
+  max-width:720px;
+  margin:0 auto 35px;
+  font-size:18px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 27px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.btn-gold{
+  background:#d4af37;
+  color:#050505;
+}
+
+.btn-gold:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(212,175,55,.2);
+}
+
+.btn-outline{
+  border:1px solid #d4af37;
+  color:#d4af37;
+}
+
+.btn-outline:hover{
+  background:#d4af37;
+  color:#050505;
+}
+
+/* SECTIONS */
+
+section{
+  padding:100px 0;
+}
+
+.section-title{
+  text-align:center;
+  max-width:750px;
+  margin:0 auto 55px;
+}
+
+.section-title h2{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.section-title h2 span{
+  color:#d4af37;
+}
+
+.section-title p{
+  color:#999;
+}
+
+/* ABOUT */
+
+.about{
+  background:#0a0a0a;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.about h3{
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+.about p{
+  color:#aaa;
+  margin-bottom:16px;
+}
+
+.about-card{
+  background:linear-gradient(145deg,#151515,#080808);
+  border:1px solid rgba(212,175,55,.2);
+  border-radius:20px;
+  padding:40px;
+}
+
+.about-card h4{
+  color:#d4af37;
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+/* SERVICES */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.service{
+  padding:32px;
+  background:#0c0c0c;
+  border:1px solid #1d1d1d;
+  border-radius:18px;
+  transition:.35s;
+}
+
+.service:hover{
+  transform:translateY(-8px);
+  border-color:rgba(212,175,55,.55);
+}
+
+.icon{
+  font-size:38px;
+  margin-bottom:18px;
+}
+
+.service h3{
+  color:#d4af37;
+  margin-bottom:12px;
+}
+
+.service p{
+  color:#999;
+  font-size:14px;
+}
+
+/* WHY US */
+
+.why{
+  background:#0a0a0a;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.why-card{
+  text-align:center;
+  padding:30px 20px;
+  background:#111;
+  border-radius:15px;
+  border:1px solid #202020;
+}
+
+.why-card strong{
+  display:block;
+  color:#d4af37;
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+/* PRODUCTS */
+
+.products{
+  background:
+    radial-gradient(circle at center,rgba(212,175,55,.08),transparent 40%),
+    #050505;
+}
+
+.product-box{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  padding:55px 35px;
+  border-radius:25px;
+  border:1px solid rgba(212,175,55,.3);
+  background:#0d0d0d;
+}
+
+.product-box h3{
+  font-size:38px;
+  color:#d4af37;
+  margin-bottom:15px;
+}
+
+.product-box p{
+  color:#aaa;
+  max-width:700px;
+  margin:0 auto 28px;
+}
+
+/* VISION */
+
+.vision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.vision-card{
+  padding:40px;
+  border-radius:18px;
+  background:#101010;
+  border:1px solid #222;
+}
+
+.vision-card h3{
+  color:#d4af37;
+  margin-bottom:15px;
+}
+
+.vision-card p{
+  color:#aaa;
+}
+
+/* CONTACT */
+
+.contact{
+  background:#0a0a0a;
+}
+
+.contact-box{
+  text-align:center;
+  max-width:850px;
+  margin:auto;
+}
+
+.contact-box h2{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+.contact-box h2 span{
+  color:#d4af37;
+}
+
+.contact-box p{
+  color:#aaa;
+  margin-bottom:30px;
+}
+
+.contact-details{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-top:30px;
+}
+
+.contact-item{
+  padding:15px 20px;
+  border:1px solid #252525;
+  border-radius:10px;
+  background:#111;
+  color:#ccc;
+}
+
+/* FOOTER */
+
+footer{
+  background:#020202;
+  padding:40px 20px;
+  text-align:center;
+  border-top:1px solid #181818;
+}
+
+footer strong{
+  color:#d4af37;
+}
+
+footer p{
+  color:#777;
+  font-size:13px;
+  margin-top:8px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  nav ul{
+    display:none;
+  }
+
+  .about-grid,
+  .vision-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .why-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:550px){
+
+  .hero h1{
+    font-size:50px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section{
+    padding:75px 0;
+  }
+
+  .section-title h2{
+    font-size:34px;
+  }
+
+  .services-grid,
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-card,
+  .vision-card{
+    padding:28px;
+  }
+
+  .product-box{
+    padding:35px 20px;
+  }
+
+  .contact-box h2{
+    font-size:35px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+TSANYAWA <span>TECHNOLOGIES</span>
+</div>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<div class="badge">
+TSANYAWA TECHNOLOGIES LTD
+</div>
+
+<h1>
+Building The
+<span>Digital Future.</span>
+</h1>
+
+<p>
+We create innovative technology, software and digital solutions
+that help people, businesses and organizations grow in a connected world.
+</p>
+
+<div class="buttons">
+
+<a href="#services" class="btn btn-gold">
+Explore Services
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Talk To Us
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+About <span>Tsanyawa</span>
+</h2>
+
+<p>
+Innovation, technology and solutions designed for tomorrow.
+</p>
+
+</div>
+
+<div class="about-grid">
+
+<div>
+
+<h3>
+Technology With Purpose
+</h3>
+
+<p>
+Tsanyawa Technologies Ltd is an emerging Nigerian technology
+company focused on developing modern digital products,
+software and technology solutions.
+</p>
+
+<p>
+We believe technology should not only be powerful.
+It should also be simple, accessible and useful.
+</p>
+
+<p>
+Our goal is to build products that solve real problems
+and create opportunities for individuals and businesses.
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h4>Our Vision</h4>
+
+<p>
+To become a trusted technology company delivering
+innovative digital solutions across Nigeria and beyond.
+</p>
+
+<br>
+
+<h4>Our Mission</h4>
+
+<p>
+To build secure, reliable and accessible technology
+that improves everyday life and helps businesses grow.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Our <span>Services</span>
+</h2>
+
+<p>
+Technology solutions built around real business needs.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service">
+
+<div class="icon">💻</div>
+
+<h3>Web Development</h3>
+
+<p>
+Professional and responsive websites for companies,
+organizations, startups and personal brands.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">📱</div>
+
+<h3>App Development</h3>
+
+<p>
+Modern applications designed to solve real problems
+and deliver excellent digital experiences.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">☁️</div>
+
+<h3>Cloud Solutions</h3>
+
+<p>
+Reliable digital infrastructure and cloud-based
+solutions for modern businesses.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">🛒</div>
+
+<h3>Digital Commerce</h3>
+
+<p>
+Technology platforms that make digital products
+and services easier to access.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">🔐</div>
+
+<h3>Digital Security</h3>
+
+<p>
+Technology built with responsible data protection,
+security and reliability in mind.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">🚀</div>
+
+<h3>Business Technology</h3>
+
+<p>
+Digital tools and technology strategies that help
+businesses improve and scale.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WHY US -->
+
+<section class="why">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why <span>Tsanyawa?</span>
+</h2>
+
+<p>
+We are building for the long term.
+</p>
+
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<strong>01</strong>
+
+Technology
+
+</div>
+
+<div class="why-card">
+
+<strong>02</strong>
+
+Innovation
+
+</div>
+
+<div class="why-card">
+
+<strong>03</strong>
+
+Reliability
+
+</div>
+
+<div class="why-card">
+
+<strong>04</strong>
+
+Customer Focus
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Our <span>Products</span>
+</h2>
+
+<p>
+Building digital products for everyday needs.
+</p>
+
+</div>
+
+<div class="product-box">
+
+<h3>
+Abdul Data Sub
+</h3>
+
+<p>
+A planned digital services platform designed to make
+data, airtime, bills and other digital services easier
+for customers to access.
+</p>
+
+<a href="#" class="btn btn-gold">
+Coming Soon
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VISION & MISSION -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Our <span>Direction</span>
+</h2>
+
+<p>
+Where Tsanyawa Technologies is going.
+</p>
+
+</div>
+
+<div class="vision-grid">
+
+<div class="vision-card">
+
+<h3>
+Our Vision
+</h3>
+
+<p>
+To build a leading African technology company known
+for innovation, trust and meaningful digital products.
+</p>
+
+</div>
+
+<div class="vision-card">
+
+<h3>
+Our Mission
+</h3>
+
+<p>
+To use technology to simplify services, empower
+businesses and create digital opportunities.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>
+Let's Build The
+<span>Future.</span>
+</h2>
+
+<p>
+Have an idea, project or business that needs technology?
+Let's work together.
+</p>
+
+<div class="buttons">
+
+<a href="mailto:Info@tsanyawatechnology20.com"
+class="btn btn-gold">
+Email Us
+</a>
+
+<a href="tel:+2349063444999"
+class="btn btn-outline">
+Call Us
+</a>
+
+</div>
+
+<div class="contact-details">
+
+<div class="contact-item">
+📧 Info@tsanyawatechnology20.com
+</div>
+
+<div class="contact-item">
+📞 +234 906 344 4999
+</div>
+
+<div class="contact-item">
+📞 +234 913 487 7680
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<strong>Tsanyawa Technologies Ltd</strong>
+
+<p>
+Technology • Innovation • Digital Solutions
+</p>
+
+<p>
+© 2026 Tsanyawa Technologies Ltd. All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+  </html>
