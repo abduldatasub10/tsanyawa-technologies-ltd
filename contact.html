@@ -1,65 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Tsanyawa Technologies Ltd</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #050505;
+  color: white;
+}
+
+header {
+  padding: 20px;
+  background: #080808;
+  border-bottom: 1px solid #222;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #d4af37;
+}
+
+.home {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 90px 20px 50px;
+}
+
+.hero h1 {
+  font-size: 50px;
+}
+
+.hero h1 span {
+  color: #d4af37;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: #aaa;
+  line-height: 1.7;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 80px;
+}
+
+.card {
+  background: #101010;
+  border: 1px solid #252525;
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.card h2 {
+  color: #d4af37;
+}
+
+.card p {
+  color: #aaa;
+  line-height: 1.7;
+}
+
+.contact-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #222;
+}
+
+.contact-item a {
+  color: #d4af37;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  background: #080808;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+textarea {
+  min-height: 130px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #d4af37;
+  color: #050505;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.whatsapp {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 13px 20px;
+  background: #d4af37;
+  color: #050505;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+footer {
+  padding: 35px;
+  text-align: center;
+  border-top: 1px solid #222;
+  color: #777;
+}
+
+footer strong {
+  color: #d4af37;
+}
+
+@media(max-width:750px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      TSANYAWA <span>TECHNOLOGIES</span>
+    </div>
+
+    <a class="home" href="index.html">
+      Home
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+
+  <h1>
+    Let's <span>Connect.</span>
+  </h1>
+
+  <p>
+    Have a technology idea, business project or question?
+    Contact Tsanyawa Technologies Ltd and let's discuss
+    your digital needs.
+  </p>
+
+</section>
+
+<div class="container">
+
+  <div class="grid">
+
+    <div class="card">
+
+      <h2>Contact Tsanyawa</h2>
+
+      <p>
+        Contact us for technology projects, partnerships,
+        business enquiries and digital solutions.
+      </p>
+
+      <div class="contact-item">
+        <strong>Email</strong>
+        <br>
+        <a href="mailto:Info@tsanyawatechnology20.com">
+          Info@tsanyawatechnology20.com
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <br>
+        <a href="tel:+2349063444999">
+          +234 906 344 4999
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <br>
+        <a href="tel:+2349134877680">
+          +234 913 487 7680
+        </a>
+      </div>
+
+      <a
+        class="whatsapp"
+        href="https://wa.me/2349063444999"
+        target="_blank">
+        Chat on WhatsApp
+      </a>
+
+    </div>
+
+    <div class="card">
+
+      <h2>Request a Project</h2>
+
+      <form id="projectForm">
+
+        <label>Full Name</label>
+
+        <input
+          id="name"
+          type="text"
+          placeholder="Your full name"
+          required>
+
+        <label>Email</label>
+
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          required>
+
+        <label>Service</label>
+
+        <select id="service" required>
+
+          <option value="">
+            Select a service
+          </option>
+
+          <option>Website Development</option>
+          <option>Mobile App Development</option>
+          <option>Software Development</option>
+          <option>AI & Data Solutions</option>
+          <option>Cybersecurity</option>
+          <option>Cloud Solutions</option>
+          <option>IT Consulting</option>
+          <option>Other</option>
+
+        </select>
+
+        <label>Project Details</label>
+
+        <textarea
+          id="message"
+          placeholder="Tell us about your project..."
+          required></textarea>
+
+        <button type="submit">
+          Send Project Enquiry
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+
+<strong>Tsanyawa Technologies Ltd</strong>
+
+<br><br>
+
+Technology • Innovation • Digital Solutions
+
+<br><br>
+
+© 2026 Tsanyawa Technologies Ltd. All Rights Reserved.
+
+</footer>
+
 <script>
-const SUPABASE_URL = "https://vgynmfhgkjpzqryasvqz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_W97B0LUtOpNiTOCB6Ozodg_ovJSJGfE";
 
-const form = document.getElementById("projectForm");
+document.getElementById("projectForm").addEventListener("submit", function(event) {
 
-form.addEventListener("submit", async function(event) {
   event.preventDefault();
 
-  const button = form.querySelector("button");
-  const originalText = button.textContent;
+  alert("Your enquiry form is working. We will connect the secure database next.");
 
-  button.disabled = true;
-  button.textContent = "Sending...";
-
-  const data = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    service: document.getElementById("service").value,
-    message: document.getElementById("message").value.trim()
-  };
-
-  try {
-    const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/project_enquiries`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_KEY,
-          "Authorization": `Bearer ${SUPABASE_KEY}`,
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify(data)
-      }
-    );
-
-    if (!response.ok) {
-      const error = await response.text();
-      console.error(error);
-      throw new Error("Submission failed");
-    }
-
-    alert(
-      "Thank you! Your project enquiry has been sent successfully."
-    );
-
-    form.reset();
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(
-      "Sorry, we could not send your enquiry. Please try again or contact us on WhatsApp."
-    );
-
-  } finally {
-
-    button.disabled = false;
-    button.textContent = originalText;
-
-  }
 });
+
 </script>
+
+</body>
+</html>
