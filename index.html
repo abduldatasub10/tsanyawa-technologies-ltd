@@ -938,4 +938,397 @@ Technology • Innovation • Digital Solutions
 </footer>
 
 </body>
-  </html>
+  </html><!-- TSANYAWA AI HELP ROBOT -->
+
+<style>
+
+#ai-button{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  border:none;
+  background:#d4af37;
+  color:#050505;
+  font-size:30px;
+  cursor:pointer;
+  z-index:9999;
+  box-shadow:0 10px 35px rgba(212,175,55,.35);
+  transition:.3s;
+}
+
+#ai-button:hover{
+  transform:scale(1.08);
+}
+
+#ai-chat{
+  position:fixed;
+  right:22px;
+  bottom:100px;
+  width:350px;
+  max-width:calc(100% - 35px);
+  height:500px;
+  background:#0b0b0b;
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:18px;
+  overflow:hidden;
+  z-index:9999;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  display:none;
+}
+
+.ai-header{
+  background:#111;
+  padding:17px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #252525;
+}
+
+.ai-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ai-avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#d4af37;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.ai-name{
+  font-weight:bold;
+}
+
+.ai-status{
+  font-size:11px;
+  color:#65d67a;
+}
+
+.ai-close{
+  background:none;
+  border:none;
+  color:#aaa;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.ai-messages{
+  height:350px;
+  padding:18px;
+  overflow-y:auto;
+}
+
+.ai-message{
+  max-width:85%;
+  padding:11px 14px;
+  margin-bottom:12px;
+  border-radius:13px;
+  font-size:14px;
+}
+
+.ai-bot{
+  background:#171717;
+  color:#ddd;
+  border-bottom-left-radius:3px;
+}
+
+.ai-user{
+  background:#d4af37;
+  color:#050505;
+  margin-left:auto;
+  border-bottom-right-radius:3px;
+}
+
+.ai-input-area{
+  display:flex;
+  border-top:1px solid #252525;
+  padding:10px;
+  gap:8px;
+}
+
+#ai-input{
+  flex:1;
+  background:#151515;
+  border:1px solid #292929;
+  color:#fff;
+  border-radius:8px;
+  padding:11px;
+  outline:none;
+}
+
+#ai-send{
+  background:#d4af37;
+  color:#050505;
+  border:none;
+  border-radius:8px;
+  padding:0 15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.ai-quick{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  padding:0 15px 10px;
+}
+
+.ai-quick button{
+  white-space:nowrap;
+  background:#151515;
+  border:1px solid #292929;
+  color:#ccc;
+  padding:7px 10px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:11px;
+}
+
+.ai-quick button:hover{
+  border-color:#d4af37;
+  color:#d4af37;
+}
+
+@media(max-width:500px){
+
+  #ai-chat{
+    right:12px;
+    bottom:95px;
+    width:calc(100% - 24px);
+    height:500px;
+  }
+
+  #ai-button{
+    right:15px;
+    bottom:15px;
+  }
+
+}
+
+</style>
+
+
+<button id="ai-button" onclick="toggleAI()">
+🤖
+</button>
+
+
+<div id="ai-chat">
+
+  <div class="ai-header">
+
+    <div class="ai-title">
+
+      <div class="ai-avatar">
+        🤖
+      </div>
+
+      <div>
+
+        <div class="ai-name">
+          Tsanyawa AI
+        </div>
+
+        <div class="ai-status">
+          ● Online
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="ai-close" onclick="toggleAI()">
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="ai-messages" id="ai-messages">
+
+    <div class="ai-message ai-bot">
+
+      👋 Hello! I'm <strong>Tsanyawa AI</strong>.
+
+      <br><br>
+
+      How can I help you today?
+
+    </div>
+
+  </div>
+
+
+  <div class="ai-quick">
+
+    <button onclick="quickAI('What services do you offer?')">
+      Services
+    </button>
+
+    <button onclick="quickAI('Tell me about Abdul Data Sub')">
+      Abdul Data Sub
+    </button>
+
+    <button onclick="quickAI('How can I contact Tsanyawa Technologies?')">
+      Contact
+    </button>
+
+  </div>
+
+
+  <div class="ai-input-area">
+
+    <input
+      id="ai-input"
+      type="text"
+      placeholder="Ask Tsanyawa AI..."
+      onkeydown="if(event.key==='Enter') sendAI()"
+    >
+
+    <button id="ai-send" onclick="sendAI()">
+      Send
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function toggleAI(){
+
+  const chat=document.getElementById("ai-chat");
+
+  if(chat.style.display==="block"){
+    chat.style.display="none";
+  }else{
+    chat.style.display="block";
+  }
+
+}
+
+
+function quickAI(text){
+
+  document.getElementById("ai-input").value=text;
+
+  sendAI();
+
+}
+
+
+function addAIMessage(text,type){
+
+  const messages=document.getElementById("ai-messages");
+
+  const div=document.createElement("div");
+
+  div.className="ai-message "+type;
+
+  div.innerHTML=text;
+
+  messages.appendChild(div);
+
+  messages.scrollTop=messages.scrollHeight;
+
+}
+
+
+function sendAI(){
+
+  const input=document.getElementById("ai-input");
+
+  const text=input.value.trim();
+
+  if(!text) return;
+
+  addAIMessage(text,"ai-user");
+
+  input.value="";
+
+  setTimeout(function(){
+
+    let response="";
+
+    const question=text.toLowerCase();
+
+
+    if(
+      question.includes("service") ||
+      question.includes("what do you do")
+    ){
+
+      response=
+      "Tsanyawa Technologies provides web development, app development, cloud solutions, digital commerce, digital security and business technology solutions.";
+
+    }
+
+    else if(
+      question.includes("abdul") ||
+      question.includes("data sub") ||
+      question.includes("data")
+    ){
+
+      response=
+      "Abdul Data Sub is one of the digital products being developed under Tsanyawa Technologies. It is designed to provide convenient access to data, airtime, bills and other digital services.";
+
+    }
+
+    else if(
+      question.includes("contact") ||
+      question.includes("phone") ||
+      question.includes("email")
+    ){
+
+      response=
+      "You can contact Tsanyawa Technologies Ltd at Info@tsanyawatechnology20.com, +234 906 344 4999 or +234 913 487 7680.";
+
+    }
+
+    else if(
+      question.includes("who are you") ||
+      question.includes("your name")
+    ){
+
+      response=
+      "I'm Tsanyawa AI, the digital assistant for Tsanyawa Technologies Ltd. 🤖";
+
+    }
+
+    else if(
+      question.includes("hello") ||
+      question.includes("hi") ||
+      question.includes("hey")
+    ){
+
+      response=
+      "Hello! 👋 Welcome to Tsanyawa Technologies Ltd. How can I help you?";
+
+    }
+
+    else{
+
+      response=
+      "Thanks for your question! I'm the Tsanyawa AI assistant. I can help you learn about our services, Abdul Data Sub and how to contact Tsanyawa Technologies.";
+
+    }
+
+
+    addAIMessage(response,"ai-bot");
+
+  },500);
+
+}
+
+</script>
